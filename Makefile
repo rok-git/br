@@ -3,7 +3,7 @@ CFLAGS	=
 #CC	= cc -framework Cocoa -framework CoreImage -fobjc-arc
 LDFLAGS	= -framework Cocoa -framework CoreImage -framework Vision
 CC	= cc -fobjc-arc
-PROGS	= brr
+PROGS	= brr br
 
 .PHONY:	clean all
 
