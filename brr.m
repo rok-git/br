@@ -35,8 +35,9 @@ int main(int argc, char *argv[])
 		NSString *barcodeString = [[barcode payloadStringValue] stringByAppendingString: @"\n"];
 		[outputFileHandle writeData: [barcodeString dataUsingEncoding:NSUTF8StringEncoding]];
 	    }
-	}
-
-	return 0;
+            return 0;
+	} else {
+            return 1;
+        }
     }
 }
