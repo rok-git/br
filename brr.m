@@ -31,10 +31,14 @@ int main(int argc, char *argv[])
 	    return 1;
 
 	if(barcodes.count > 0){
+            NSMutableSet *barcodeSet = [NSMutableSet set];
 	    for(VNBarcodeObservation *barcode in barcodes){
 		NSString *barcodeString = [[barcode payloadStringValue] stringByAppendingString: @"\n"];
-		[outputFileHandle writeData: [barcodeString dataUsingEncoding:NSUTF8StringEncoding]];
+                [barcodeSet addObject: barcodeString];
 	    }
+            for(NSString *barcodeString in barcodeSet){
+                [outputFileHandle writeData: [barcodeString dataUsingEncoding:NSUTF8StringEncoding]];
+            }
             return 0;
 	} else {
             return 1;
