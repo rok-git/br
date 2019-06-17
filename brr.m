@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	if(barcodes.count > 0){
             NSMutableSet *barcodeSet = [NSMutableSet set];
 	    for(VNBarcodeObservation *barcode in barcodes){
-		NSString *barcodeString = [[barcode payloadStringValue] stringByAppendingString: @"\n"];
+		NSString *barcodeString = [barcode payloadStringValue];
                 [barcodeSet addObject: barcodeString];
 	    }
             for(NSString *barcodeString in barcodeSet){
