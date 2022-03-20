@@ -37,7 +37,11 @@ int main(int argc, char *argv[])
                 [barcodeSet addObject: barcodeString];
 	    }
             for(NSString *barcodeString in barcodeSet){
-                [outputFileHandle writeData: [barcodeString dataUsingEncoding:NSUTF8StringEncoding]];
+                NSError *err;
+                if(![outputFileHandle writeData: [barcodeString dataUsingEncoding:NSUTF8StringEncoding] error: &err]){
+                    NSLog(@"Error: %@", err);
+                    return 1;
+                }
             }
             return 0;
 	} else {
